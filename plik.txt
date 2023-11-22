@@ -5,7 +5,9 @@ Tutaj coś jest od samego początku
 
 #sekcja 2
 Zmiany na gałęzi feature-A
+!!!Konflikt z gałęzią A!!!
 
 
 
 #sekcja 3
+Zmiany na gałęzi B
