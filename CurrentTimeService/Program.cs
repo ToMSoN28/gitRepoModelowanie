@@ -10,7 +10,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-// GET UTC
+// Sprawdzenie wersjonowania
 app.MapGet("time/utc", () => Results.Ok($"{DateTime.UtcNow}, Version: {Version.Current}"));
 
 await app.RunAsync();
