@@ -1,4 +1,13 @@
 public static class Version
 {
-    public const string Current = "1.0.0"; // Początkowa wersja
+    private static int major = 1;
+    private static int minor = 0;
+    private static int patch = 0;
+
+    public static string Current => $"{major}.{minor}.{patch}";
+
+    public static void IncreaseVersion()
+    {
+        patch++;
+    }
 }
