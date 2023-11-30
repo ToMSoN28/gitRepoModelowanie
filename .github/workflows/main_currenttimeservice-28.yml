@@ -22,8 +22,14 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
       
-      - name: Update version in Version.cs
-        run: echo "public static class Version { public const string Current = \"$(git describe --tags --abbrev=0)\"; }" > Version.cs
+      - name: Get current version
+        id: get-version
+        run: echo "::set-output name=version::$(git describe --tags --abbrev=0)"
+
+      - name: Increase version
+        id: increase-version
+        run: echo "::set-output name=version::$(echo "${{ steps.get-version.outputs.version }}" | awk -F. '{$NF = $NF + 1;} 1' OFS=.)"
+
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
